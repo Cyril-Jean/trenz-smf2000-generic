@@ -36,7 +36,12 @@ sd_connect_pins -sd_name {MICROSUBSYSTEM} -pin_names {"FCCC_C0_0:LOCK" "MSS_COMP
 
 sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:FIC_0_APB} -port_name {}
 
-
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:MMUART_0_DTR} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:MMUART_0_RXD} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:MMUART_0_DSR} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:MMUART_0_CTS} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:MMUART_0_TXD} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:MMUART_0_RTS} -port_name {}
 
 sd_create_scalar_port -sd_name {MICROSUBSYSTEM} -port_name {APB_CLK} -port_direction {OUT}
 sd_connect_pins -sd_name {MICROSUBSYSTEM} -pin_names {"FCCC_C0_0:GL0" "APB_CLK"}

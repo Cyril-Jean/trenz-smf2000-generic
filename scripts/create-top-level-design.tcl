@@ -17,3 +17,10 @@ sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"CoreAPB3_C0_0:APBmslave7" "co
 sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MICROSUBSYSTEM_0:APB_CLK" "corepwm_C0_0:PCLK"} 
 sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MICROSUBSYSTEM_0:APB_RESET" "corepwm_C0_0:PRESETN"}
 
+sd_connect_pin_to_port -sd_name {TOP_DESIGN} -pin_name {MICROSUBSYSTEM_0:MMUART_0_DTR} -port_name {} 
+sd_connect_pin_to_port -sd_name {TOP_DESIGN} -pin_name {MICROSUBSYSTEM_0:MMUART_0_RXD} -port_name {} 
+sd_connect_pin_to_port -sd_name {TOP_DESIGN} -pin_name {MICROSUBSYSTEM_0:MMUART_0_DSR} -port_name {} 
+sd_connect_pin_to_port -sd_name {TOP_DESIGN} -pin_name {MICROSUBSYSTEM_0:MMUART_0_CTS} -port_name {} 
+sd_connect_pin_to_port -sd_name {TOP_DESIGN} -pin_name {MICROSUBSYSTEM_0:MMUART_0_RTS} -port_name {} 
+sd_connect_pin_to_port -sd_name {TOP_DESIGN} -pin_name {MICROSUBSYSTEM_0:MMUART_0_TXD} -port_name {}
+
