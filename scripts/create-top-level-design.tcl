@@ -24,3 +24,50 @@ sd_connect_pin_to_port -sd_name {TOP_DESIGN} -pin_name {MICROSUBSYSTEM_0:MMUART_
 sd_connect_pin_to_port -sd_name {TOP_DESIGN} -pin_name {MICROSUBSYSTEM_0:MMUART_0_RTS} -port_name {} 
 sd_connect_pin_to_port -sd_name {TOP_DESIGN} -pin_name {MICROSUBSYSTEM_0:MMUART_0_TXD} -port_name {}
 
+
+sd_create_scalar_port -sd_name {TOP_DESIGN} -port_name {LED1} -port_direction {OUT} 
+sd_create_scalar_port -sd_name {TOP_DESIGN} -port_name {LED2} -port_direction {OUT} 
+sd_create_scalar_port -sd_name {TOP_DESIGN} -port_name {LED3} -port_direction {OUT} 
+sd_create_scalar_port -sd_name {TOP_DESIGN} -port_name {LED4} -port_direction {OUT} 
+sd_create_scalar_port -sd_name {TOP_DESIGN} -port_name {LED5} -port_direction {OUT} 
+sd_create_scalar_port -sd_name {TOP_DESIGN} -port_name {LED6} -port_direction {OUT} 
+sd_create_scalar_port -sd_name {TOP_DESIGN} -port_name {LED7} -port_direction {OUT} 
+sd_create_scalar_port -sd_name {TOP_DESIGN} -port_name {LED8} -port_direction {OUT} 
+sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MICROSUBSYSTEM_0:GPIO_0_M2F" "LED1"} 
+sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MICROSUBSYSTEM_0:GPIO_1_M2F" "LED2"} 
+sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MICROSUBSYSTEM_0:GPIO_2_M2F" "LED3"} 
+sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MICROSUBSYSTEM_0:GPIO_3_M2F" "LED4"} 
+sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MICROSUBSYSTEM_0:GPIO_4_M2F" "LED5"} 
+sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MICROSUBSYSTEM_0:GPIO_5_M2F" "LED6"} 
+sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MICROSUBSYSTEM_0:GPIO_6_M2F" "LED7"} 
+sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MICROSUBSYSTEM_0:GPIO_7_M2F" "LED8"} 
+
+sd_create_scalar_port -sd_name {TOP_DESIGN} -port_name {MMUART_1_RXD} -port_direction {IN} 
+sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MMUART_1_RXD" "MICROSUBSYSTEM_0:MMUART_1_RXD_F2M"} 
+sd_create_scalar_port -sd_name {TOP_DESIGN} -port_name {MMUART_1_TXD} -port_direction {OUT} 
+sd_connect_pins -sd_name {TOP_DESIGN} -pin_names {"MICROSUBSYSTEM_0:MMUART_1_TXD_M2F" "MMUART_1_TXD"} 
+
+save_project
+
+generate_component -component_name {TOP_DESIGN} -recursive 0
+
+set_root -module {TOP_DESIGN::work} 
+build_design_hierarchy 
+save_project
+
+#
+# Constraints
+#
+set constraint_path ./constraints
+
+run_tool -name {CONSTRAINT_MANAGEMENT} 
+create_links \
+         -convert_EDN_to_HDL 0 \
+         -io_pdc "${constraint_path}/io/pin_constraints.pdc"
+
+organize_tool_files -tool {PLACEROUTE} -file "${constraint_path}/io/pin_constraints.pdc" -module {TOP_DESIGN::work} -input_type {constraint} 
+
+
+derive_constraints_sdc
+save_project
+

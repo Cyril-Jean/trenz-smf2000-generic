@@ -1,0 +1,119 @@
+# Microsemi I/O Physical Design Constraints file
+
+# User I/O Constraints file 
+
+# Version: v12.5 12.900.10.16
+
+# Family: SmartFusion2 , Die: M2S010 , Package: 400 VF
+
+# Date generated: Sun Oct 25 20:19:27 2020 
+
+# 
+# User Locked I/O Bank Settings
+# 
+
+# 
+# Unlocked I/O Bank Settings
+# The I/O Bank Settings can be locked by directly editing this file
+# or by making changes in the I/O Attribute Editor
+# 
+
+# 
+# User Locked I/O settings
+# 
+
+set_io CLK1_PAD       \
+    -pinname N16      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io LED1            \
+    -pinname E18       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io LED2            \
+    -pinname R17       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io LED3            \
+    -pinname R18       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io LED4            \
+    -pinname T18       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io LED5            \
+    -pinname U18       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io LED6            \
+    -pinname R16       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io LED7            \
+    -pinname E1        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io LED8            \
+    -pinname D2        \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io MMUART_1_RXD   \
+    -pinname L19      \
+    -fixed yes        \
+    -DIRECTION INPUT
+
+
+set_io MMUART_1_TXD    \
+    -pinname H19       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+set_io {PWM[0]}        \
+    -pinname F20       \
+    -fixed yes         \
+    -DIRECTION OUTPUT
+
+
+
+# 
+# Dedicated Peripheral I/O Settings
+# 
+
+
+# 
+# Unlocked I/O settings
+# The I/Os in this section are unplaced or placed but are not locked
+# the other listed attributes have been applied
+# 
+
+
+#
+#Ports using Dedicated Pins
+
+#
+
+set_io DEVRST_N       \
+    -pinname U17      \
+    -DIRECTION INPUT
+
+
