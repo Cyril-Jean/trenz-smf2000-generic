@@ -43,6 +43,18 @@ sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:MMUA
 sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:MMUART_0_TXD} -port_name {} 
 sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:MMUART_0_RTS} -port_name {}
 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:MMUART_1_TXD_M2F} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:MMUART_1_RXD_F2M} -port_name {} 
+
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:GPIO_0_M2F} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:GPIO_1_M2F} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:GPIO_2_M2F} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:GPIO_3_M2F} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:GPIO_4_M2F} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:GPIO_5_M2F} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:GPIO_6_M2F} -port_name {} 
+sd_connect_pin_to_port -sd_name {MICROSUBSYSTEM} -pin_name {MSS_COMPONENT_0:GPIO_7_M2F} -port_name {} 
+
 sd_create_scalar_port -sd_name {MICROSUBSYSTEM} -port_name {APB_CLK} -port_direction {OUT}
 sd_connect_pins -sd_name {MICROSUBSYSTEM} -pin_names {"FCCC_C0_0:GL0" "APB_CLK"}
 sd_create_scalar_port -sd_name {MICROSUBSYSTEM} -port_name {APB_RESET} -port_direction {OUT}
